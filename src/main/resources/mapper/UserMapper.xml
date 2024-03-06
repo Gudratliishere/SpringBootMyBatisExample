@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gudratli.mybatisexample.mapper.UserMapper">
+    <select id="findAll" resultType="User">
+        select * from users
+    </select>
+
+    <select id="findById" resultType="User">
+        select * from users where id = #{id}
+    </select>
+
+    <insert id="save" parameterType="User">
+        insert into users (username, salary) values (#{username}, #{salary})
+    </insert>
+
+    <update id="update" parameterType="User">
+        update users set username = #{username}, salary = #{salary} where id = #{id}
+    </update>
+
+    <delete id="delete">
+        delete from users where id = #{id}
+    </delete>
+</mapper>
